@@ -1,13 +1,15 @@
 <template>
   <main>
-    <div class="search-box">
-      <input
-        v-model="query"
-        @keypress="fetchWeather"
-        type="text"
-        class="search-bar"
-        placeholder="Seacrh..."
-      />
+    <div class="search-container">
+      <div class="search-box">
+        <input
+          v-model="query"
+          @keypress="fetchWeather"
+          type="text"
+          class="search-bar"
+          placeholder="Seacrh..."
+        />
+      </div>
     </div>
 
     <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
@@ -56,6 +58,10 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  font-size: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -67,7 +73,7 @@ body {
 }
 
 #app {
-  background-image: url("@/assets/cold-bg.jpg");
+  background-image: url("@/assets/wallpaper.png");
   background-size: cover;
   background-position: bottom;
   transition: 0.4s;
@@ -75,7 +81,7 @@ body {
 
 main {
   min-height: 100vh;
-  padding: 25px;
+  padding: 2.5rem;
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.25),
@@ -83,51 +89,62 @@ main {
   );
 }
 
+.search-container {
+  @media only screen and (min-width: 35rem) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .search-box .search-bar {
   display: block;
   width: 100%;
-  padding: 15px;
+  padding: 1.5rem;
 
   color: #313131;
-  font-size: 20px;
+  font-size: 2rem;
 
   appearance: none;
   background: none;
   border: none;
   outline: none;
 
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0rem 0remr 0.8rem rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 0 16px 0 16px;
+  border-radius: 0 1.6rem 0 1.6rem;
   transition: 0.3s;
+
+  @media only screen and (min-width: 35rem) {
+    width: 100%;
+  }
 }
 
 .search-box .search-bar:focus {
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0rem 0rem 1.6rem rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 16px 0 16px 0;
+  border-radius: 1.6rem 0 1.6rem 0;
 }
 
 .location-box .location {
-  padding-top: 1em;
+  padding-top: 1rem;
   color: #fff;
-  font-size: 32px;
+  font-size: 3.2rem;
   font-weight: 500;
   text-align: center;
-  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+  text-shadow: 0.1rem 0.3rem rgba(0, 0, 0, 0.25);
 }
 
 .location-box {
-  padding-top: 0.5em;
+  padding-top: 0.5rem;
   color: #fff;
   text-align: center;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 300;
   font-style: italic;
 }
 
 .weather-box {
-  padding-top: 0.5em;
+  padding-top: 0.5rem;
   text-align: center;
 }
 
@@ -135,22 +152,22 @@ main {
   color: #fff;
   display: inline-block;
   text-align: center;
-  padding: 10px 25px;
-  font-size: 100px;
+  padding: 1rem 2.5rem;
+  font-size: 10rem;
 
-  text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+  text-shadow: 0.3rem 0.6rem rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.25);
-  border-radius: 16px;
-  margin: 30px 0px;
-  box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 1.6rem;
+  margin: 3rem 0rem;
+  box-shadow: 0.3rem 0.6rem rgba(0, 0, 0, 0.25);
 }
 
 .weather-box .weather {
   color: #fff;
   text-align: center;
-  font-size: 48px;
+  font-size: 4.8rem;
   font-weight: 500;
   font-style: italic;
-  text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+  text-shadow: 0.3rem 0.6rem rgba(0, 0, 0, 0.25);
 }
 </style>
